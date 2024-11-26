@@ -1,0 +1,59 @@
+<section class="main-section">
+  <div class="col-lg-3 col-md-5 col-sm-10 p-4 shadow">
+    <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+    <div>
+      <p class="logo">Register</p>
+      <mat-form-field class="input">
+        <mat-label>Full Name</mat-label>
+        <input type="text" matInput formControlName="username">
+        <mat-error>
+          @if(registerFormControl['username'].errors){
+            @if(registerFormControl['username'].errors['required']){ Name is required }
+          }
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email">
+        <mat-error>
+          @if(registerFormControl['email'].errors){
+            @if(registerFormControl['email'].errors['required']){ Email is required }
+            @if(registerFormControl['email'].errors['email']){ Email should be right format }
+          }
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error>
+          @if(registerFormControl['password'].errors){
+            @if(registerFormControl['password'].errors['required']){ Password is required }
+            @if(registerFormControl['password'].errors['minlength']){ Password should be min4 digit }
+          }
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-radio-group aria-label="Select an option" color="primary" formControlName="userRole">
+        <mat-radio-button value="admin">Admin</mat-radio-button>
+        <mat-radio-button value="support">Support</mat-radio-button>
+        <mat-radio-button value="user">User</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div>
+      <button type="submit" [disabled]="isSubmit" mat-flat-button color="primary" class="button">Submit</button>
+    </div>
+    </form>
+    <div class="pt-3">
+      <p>Already have an account? <a routerLink="/login"><span class="reg">Login</span></a></p>
+    </div>
+
+  </div>
+
+</section>
+
+

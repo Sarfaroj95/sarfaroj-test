@@ -1,0 +1,97 @@
+/* General Body and Content */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  margin-left: 250px; /* Default space for sidebar */
+  transition: margin-left 0.3s ease-in-out;
+  padding: 20px;
+}
+
+.content-area {
+  padding: 20px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  padding-top: 50px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar-header h2 {
+  color: white;
+  text-align: center;
+  font-size: 24px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 18px;
+  display: block;
+  padding: 10px 20px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #575757;
+}
+
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+
+/* Open button for mobile */
+.open-btn {
+  display: none;
+  font-size: 30px;
+  color: #111;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    padding-top: 0;
+  }
+
+  .sidebar.active {
+    width: 250px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .open-btn {
+    display: block;
+  }
+
+  .content-area {
+    margin-top: 50px; /* To account for the mobile menu button */
+  }
+}

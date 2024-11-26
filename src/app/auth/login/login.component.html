@@ -1,0 +1,41 @@
+<section class="main-section">
+  <div class="col-lg-3 col-md-5 col-sm-10 p-4 shadow">
+    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+    <div>
+      <p class="logo">Login</p>
+      <mat-form-field class="input">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email">
+        <mat-error>
+          @if(loginFormControl['email'].errors){
+            @if(loginFormControl['email'].errors['required']){ Email is required }
+            @if(loginFormControl['email'].errors['email']){ Email should be right format }
+          }
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error>
+          @if(loginFormControl['password'].errors){
+            @if(loginFormControl['password'].errors['required']){ Password is required }
+            @if(loginFormControl['password'].errors['minlength']){ Password should be min4 digit }
+          }
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button type="submit" [disabled]="isSubmit" mat-flat-button color="primary" class="button">Submit</button>
+    </div>
+    </form>
+    <div class="pt-3">
+      <p>If you don't have account? <a routerLink="/register"><span class="reg">Register</span></a></p>
+    </div>
+
+  </div>
+
+</section>
+
+
